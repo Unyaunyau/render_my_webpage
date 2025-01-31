@@ -1,0 +1,248 @@
+/* *************** 基本設定 *************** */
+/* 全体に適用する基本スタイル */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1;
+}
+
+/* 背景画像（全ページ共通） */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://res.cloudinary.com/dso0ibzjm/image/upload/v1738297142/5_dkdvd7.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.3; /* 背景画像の半透明設定 */
+    z-index: -1; /* 背景画像を最背面に配置 */
+}
+
+/* *************** ヘッダ設定 *************** */
+/* 固定されたヘッダー */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 0.5rem 1rem;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-bottom: 2px solid #555; /* 下部のボーダー */
+}
+
+header h1 {
+    margin-top: 0.2rem;
+    margin: 0;
+    font-size: 2.0rem;
+}
+
+header nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.7rem;
+}
+
+header nav .nav-label {
+    font-weight: normal; /* 細字 */
+    font-size: 0.9rem; /* サイズ調整 (必要に応じて) */
+    color: #b1b1b1; /* 見やすく調整 (必要なら) */
+}
+
+header nav a {
+    color: #ddd;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header nav a:hover,
+header nav a.active {
+    text-decoration: underline;
+    color: white;
+}
+
+/* *************** フッタ設定 *************** */
+/* 固定されないフッター */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    margin: 0; /* 外側余白を削除 */
+    border-top: 2px solid #555;
+}
+
+footer a {
+    color: #ddd;
+    text-decoration: none;
+    margin: 0 0.1rem;
+    padding: 0; /* 内側余白を削除 */
+}
+
+footer p {
+    margin: 0.5rem; /* 外側余白を削除 */
+    padding: 0; /* 内側余白を削除 */
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: white;
+}
+
+/* *************** コンテンツ設定 *************** */
+/* メインコンテンツエリア */
+main {
+    margin-top: 2rem; /* ヘッダーの高さ + 適切な余白を設定 */
+    padding: 2.5rem;
+    z-index: 1; /* コンテンツを背景画像の上に表示 */
+}
+
+main section a {
+    font-size: 1.0rem;
+    color: #1100ff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main section a:hover,
+main section a.active {
+    font-size: 1.0rem;
+    text-decoration: underline;
+    color: #1100ff;
+}
+
+/* 左側にラインをつけた段落 */
+.left-line {
+    border-left: 2px solid gray;
+    padding-left: 0.5rem;
+    margin-left: 0.5rem;
+}
+
+/* *************** ギャラリーページ設定 *************** */
+/* ギャラリーの画像スタイル */
+.image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.image-gallery img {
+    max-width: 200px;
+    height: auto;
+    object-fit: cover;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+}
+
+.image-gallery img:hover {
+    transform: scale(1.1);
+}
+
+/* ポップアップオーバーレイ */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.popup-content img {
+    width: 100%;
+    height: auto;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+.close-btn:hover {
+    background: #ddd;
+}
+
+/* *************** 音楽ページ設定 *************** */
+/* プレイリストのスタイル */
+.playlist-container {
+    position: relative;
+    width: 600px;
+    height: 350px;
+}
+
+.playlist-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 3;
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://res.cloudinary.com/dso0ibzjm/image/upload/v1738297592/mylistimage_bcuazv.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.4;
+    filter: blur(3px);
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.playlist-container:hover .background-image {
+    opacity: 1;
+}
+
+.playlist-content {
+    position: relative;
+    z-index: 2;
+    padding: 10px;
+    text-align: left;
+}
+
+.playlist-logo {
+    width: 240px;
+}
+
+.playlist-text {
+    font-size: 30px;
+    color: #FF0000;
+    font-weight: bold;
+}

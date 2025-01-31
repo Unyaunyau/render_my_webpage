@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mie:Nashigi</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Mie:Nashigi</h1>
+        <nav>
+            <span class="nav-label">contents:</span>
+            <a href="/">Home</a>
+            <a href="/music">Music</a>
+            <a href="/" class="active">Illustration</a>
+            <a href="/game">Game</a>
+            <span class="nav-label"> | </span>
+            <span class="nav-label">link:</span>
+            <a href="https://www.youtube.com/@MieNahiGi" target="_blank">YouTube</a>
+            <a href="https://x.com/MieNashiGi_V" target="_blank">X</a>
+            <a href="https://coconala.com/services/2470642" target="_blank">coconala</a>
+        </nav>
+    </header>
+    <main>
+        <h1>ILLUSTRATION</h1>
+        <h2>GALLERY</h2>
+        <div class="left-line">
+            <div class="image-gallery">
+                <img src="https://res.cloudinary.com/dso0ibzjm/image/upload/v1738297463/3_ly5c0z.jpg" alt="Illustration 1">
+                <img src="https://res.cloudinary.com/dso0ibzjm/image/upload/v1738297463/4_kqahij.jpg" alt="Illustration 2">
+                <img src="https://res.cloudinary.com/dso0ibzjm/image/upload/v1738297462/10_mmrysd.jpg" alt="Illustration 3">
+                <img src="https://res.cloudinary.com/dso0ibzjm/image/upload/v1738297460/2_xjbugk.jpg" alt="Illustration 4">
+                <img src="https://res.cloudinary.com/dso0ibzjm/image/upload/v1738297460/1_w2wgk8.jpg" alt="Illustration 5">
+                <img src="https://res.cloudinary.com/dso0ibzjm/image/upload/v1738297460/7_m85gze.jpg" alt="Illustration 1">
+                <img src="https://res.cloudinary.com/dso0ibzjm/image/upload/v1738297460/9_lypgag.jpg" alt="Illustration 2">
+                <img src="https://res.cloudinary.com/dso0ibzjm/image/upload/v1738297459/11_tacact.jpg" alt="Illustration 3">
+                <img src="https://res.cloudinary.com/dso0ibzjm/image/upload/v1738297459/6_z7l0l0.jpg" alt="Illustration 4">
+                <img src="https://res.cloudinary.com/dso0ibzjm/image/upload/v1738297458/8_ymdw1v.jpg" alt="Illustration 5">
+                <img src="https://res.cloudinary.com/dso0ibzjm/image/upload/v1738297142/5_dkdvd7.jpg" alt="Illustration 5">
+                <!-- 必要に応じて追加の画像をここに追加 -->
+            </div>
+        </div>
+        <!-- ポップアップ要素 -->
+        <div class="popup-overlay" id="popup">
+            <div class="popup-content">
+                <button class="close-btn" id="closePopup">✖:CLOSE</button>
+                <img src="" alt="Popup Image" id="popupImage">
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>External Links:</p>
+        <a href="https://otomachiuna.jp/" target="_blank">音街ウナ公式</a>
+        <a href="https://www.clipstudio.net/ja/" target="_blank">ClipStudio</a>
+    </footer>
+    <!-- JavaScripts -->
+    <script>
+        const gallery = document.querySelector('.image-gallery');
+        const popup = document.getElementById('popup');
+        const popupImage = document.getElementById('popupImage');
+        const closePopup = document.getElementById('closePopup');
+
+        // サムネイルクリック時にポップアップを表示
+        gallery.addEventListener('click', (e) => {
+            if (e.target.tagName === 'IMG') {
+                const fullImageSrc = e.target.getAttribute('src');
+                popupImage.src = fullImageSrc;
+                popup.style.display = 'flex';
+            }
+        });
+
+        // ポップアップ閉じるボタン
+        closePopup.addEventListener('click', () => {
+            popup.style.display = 'none';
+            popupImage.src = ''; // メモリ節約のため
+        });
+
+        // ポップアップ背景クリック時にも閉じる
+        popup.addEventListener('click', (e) => {
+            if (e.target === popup) {
+                popup.style.display = 'none';
+                popupImage.src = '';
+            }
+        });
+    </script>
+
+
+</body>
+</html>
